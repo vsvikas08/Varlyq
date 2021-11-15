@@ -1,6 +1,9 @@
 import React from 'react';
 import Button from "@mui/material/Button";
 import UserCardlist from './UserCardlist';
+import Sidebar from './Sidebar';
+import { Box } from '@mui/system';
+import { Grid } from '@mui/material';
 
 class App extends React.Component{
 	state = {
@@ -19,12 +22,21 @@ class App extends React.Component{
 	}
 	render(){
 		return (
-			<div className="App">
-				<h1>Project Setup</h1>
-				<Button variant="contained">Hello World</Button>
-
-				<UserCardlist state={this.state}/>
-			</div>
+			<Box sx={{flexGrow: 1}}>
+				<Grid container spacing={2}>
+					<Grid item xs={12} md={2} lg={2}>
+						<Sidebar />
+					</Grid>
+					<Grid item md={10} lg={10}>
+						<UserCardlist state={this.state}/>
+					</Grid>
+				</Grid>
+			</Box>
+			// <div className="App">
+				
+			// 	<Sidebar />
+			// 	<UserCardlist state={this.state}/>
+			// </div>
 		  );
 	}
   
