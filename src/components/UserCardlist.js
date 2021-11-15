@@ -10,25 +10,22 @@ const useStyles = makeStyles({
     }
 })
 
-function UserCardlist() {
+const UserCardlist = (props) => {
     const classes = useStyles();
+    const {employee} = props.state;
+    console.log('Card STATE',employee);
     return (
         <Grid container spacing={4} className={classes.gridContainer}>
-            <Grid item xs={12} sm={6} md={4} lg={3}>
-                <UserCard />
-            </Grid>
-            <Grid item xs={12} sm={6} md={4} lg={3}>
-                <UserCard />
-            </Grid>
-            <Grid item xs={12} sm={6} md={4} lg={3}>
-                <UserCard />
-            </Grid>
-            <Grid item xs={12} sm={6} md={4} lg={3}>
-                <UserCard />
-            </Grid>
-            <Grid item xs={12} sm={6} md={4} lg={3}>
-                <UserCard />
-            </Grid>
+            {employee.map((emp) => {
+                        return (
+                            <Grid item xs={12} sm={6} md={4} lg={3}>
+                                <UserCard employee={emp} key={emp.id} />
+                            </Grid>  
+                        )
+                    }
+                    
+                )}
+            
         </Grid>
     );
 }

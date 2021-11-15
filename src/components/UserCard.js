@@ -1,31 +1,26 @@
 import * as React from 'react';
-import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
-import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-import { makeStyles } from '@mui/styles';
-import { CardHeader, CardMedia, Chip } from '@mui/material';
+import { CardHeader, CardMedia, Chip, IconButton } from '@mui/material';
+import { MoreVert } from '@mui/icons-material';
 
-const bull = (
-  <Box
-    component="span"
-    sx={{ display: 'inline-block', mx: '2px', transform: 'scale(0.8)' }}
-  >
-    •
-  </Box>
-);
-const useStyles = makeStyles({
-    chipContainer: {
-        
-      }
-})
 
-function UserCard() {
-    const classes = useStyles();
+
+const UserCard = (props) => {
+    const {name,email} = props.employee;
+    const {catchPhrase} = props.employee.company;
+    // console.log('Company ',props.employee.company.catchPhrase);
+    // console.log(catchPhrase);
     return (
         <Card sx={{ minWidth: 200 }}>
+            <CardHeader
+                action={
+                <IconButton aria-label="settings">
+                    <MoreVert />
+                </IconButton>
+                }
+            />
             <CardMedia
                     component="img"
                     height="200"
@@ -33,16 +28,13 @@ function UserCard() {
             />
             <CardContent>
                 <Typography sx={{textAlign: 'center'}} variant="h6" component="div">
-                    Vikas Kumar
+                    {name}
                 </Typography>
-                <Chip  label="UI Designer" color="primary" variant="outlined" />
-                <Typography sx={{ mb: 1.5 },{textAlign:'center'}} color="text.secondary">
-                    vikas3517@gmail.com
+                <Chip  label={catchPhrase} color="primary" variant="outlined" />
+                <Typography sx={{ mb: 1.5, textAlign:'center'}} color="text.secondary">
+                    {email}
                 </Typography>
             </CardContent>
-            {/* <CardActions>
-                <Button size="small">Learn More</Button>
-            </CardActions> */}
         </Card>
     
     );
