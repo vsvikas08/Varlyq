@@ -1,18 +1,14 @@
-import { List, ListItem, ListItemButton, ListItemIcon, ListItemText } from "@mui/material";
+import { List, ListItem, ListItemButton, ListItemText } from "@mui/material";
 import { Box } from "@mui/system";
-import InboxIcon from '@mui/icons-material/Inbox';
-import DraftsIcon from '@mui/icons-material/Drafts';
 import Divider from '@mui/material/Divider';
 import React from "react";
 
 
 
 function Sidebar(){
-    const [selectedIndex, setSelectedIndex] = React.useState(4);
+    const [selectedIndex] = React.useState(4);
 
-    const handleListItemClick = (event, index) => {
-        setSelectedIndex(index);
-    };
+    
     return (
         <Box sx={{width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
             <nav aria-label="main mailbox folders">

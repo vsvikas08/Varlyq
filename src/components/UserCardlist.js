@@ -1,4 +1,4 @@
-import { Button, FormControl, FormHelperText, Grid, InputLabel, MenuItem, Select, TextField, Typography } from '@mui/material';
+import { Button, FormControl, Grid, InputLabel, MenuItem, Select, TextField, Typography } from '@mui/material';
 import { makeStyles } from '@mui/styles';
 import { Box } from '@mui/system';
 import React from 'react';
@@ -72,11 +72,12 @@ const UserCardlist = (props) => {
             </Box>
             <Grid container spacing={4} className={classes.gridContainer}>
                 {employee.filter((val)=>{
-                    if(searchTerm == ""){
+                    if(searchTerm === ""){
                         return val
                     }else if(val.name.toLowerCase().includes(searchTerm.toLowerCase())){
                         return val
                     }
+                    return val
                 }).map((emp) => {
                             return (
                                 <Grid item xs={12} sm={6} md={4} lg={3}>
