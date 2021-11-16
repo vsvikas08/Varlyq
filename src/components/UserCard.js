@@ -4,38 +4,49 @@ import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 import { CardHeader, CardMedia, Chip, IconButton } from '@mui/material';
 import { MoreVert } from '@mui/icons-material';
+import { makeStyles } from '@mui/styles';
+import { Box } from '@mui/system';
 
 
-
+const useStyles = makeStyles({
+    cardU: {
+        paddingLeft: "20px",
+        paddingRight: "20px"
+    }
+})
 const UserCard = (props) => {
+    console.log(props.employee.id);
+    console.log(props);
+    const { classes } = useStyles();
     const {name,email} = props.employee;
     const {catchPhrase} = props.employee.company;
     // console.log('Company ',props.employee.company.catchPhrase);
     // console.log(catchPhrase);
     return (
-        <Card sx={{ minWidth: 200 }}>
-            <CardHeader
-                action={
-                <IconButton aria-label="settings">
+        <Box >
+            <Card sx={{ minWidth: 200 }} style={{borderRadius: 25}}>
+                
+                <IconButton sx={{float: 'right',mt: 1,mr: 1}} aria-label="settings">
                     <MoreVert />
                 </IconButton>
-                }
-            />
-            <CardMedia
-                    component="img"
-                    height="200"
-                    image="https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png"
-            />
-            <CardContent>
-                <Typography sx={{textAlign: 'center'}} variant="h6" component="div">
-                    {name}
-                </Typography>
-                <Chip  label={catchPhrase} color="primary" variant="outlined" />
-                <Typography sx={{ mb: 1.5, textAlign:'center'}} color="text.secondary">
-                    {email}
-                </Typography>
-            </CardContent>
-        </Card>
+                    
+                <CardMedia
+                        // component="img"
+                        style={{height: 120, width: 150, marginLeft: 'auto', marginRight: 'auto', marginTop: '1em'}}
+                        image="https://cdn3.vectorstock.com/i/1000x1000/30/97/flat-business-man-user-profile-avatar-icon-vector-4333097.jpg/1000x1080"
+                />
+                <CardContent sx={{textAlign: 'center'}} style={{marginLeft: 'auto',marginRight: 'auto'}}>
+                    <Typography  variant="h6" component="div">
+                        {name}
+                    </Typography>
+                    <Chip  label={catchPhrase} style={{backgroundColor: '#b2ebf2'}}/>
+                    <Typography sx={{ mt: 1.5}} color="text.secondary">
+                        {email}
+                    </Typography>
+                </CardContent>
+            </Card>
+        </Box>
+        
     
     );
   }

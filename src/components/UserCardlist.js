@@ -16,7 +16,7 @@ const useStyles = makeStyles({
 const UserCardlist = (props) => {
     const classes = useStyles();
     const {employee} = props.state;
-    console.log('Card STATE',employee);
+    // console.log('Card STATE',employee);
 
     const [searchTerm,setSearchTerm] = useState("");
     return (
@@ -47,9 +47,9 @@ const UserCardlist = (props) => {
                 <MenuItem value="">
                     <em>None</em>
                 </MenuItem>
-                <MenuItem value={10}>Ten</MenuItem>
-                <MenuItem value={20}>Twenty</MenuItem>
-                <MenuItem value={30}>Thirty</MenuItem>
+                <MenuItem value={`10`}>Ten</MenuItem>
+                <MenuItem value='20'>Twenty</MenuItem>
+                <MenuItem value='30'>Thirty</MenuItem>
                 </Select>
             </FormControl>
             <FormControl sx={{fmb: 2,ml: 4, minWidth: 120 }}>
@@ -63,9 +63,9 @@ const UserCardlist = (props) => {
                 <MenuItem value="">
                     <em>None</em>
                 </MenuItem>
-                <MenuItem value={10}>Ten</MenuItem>
-                <MenuItem value={20}>Twenty</MenuItem>
-                <MenuItem value={30}>Thirty</MenuItem>
+                <MenuItem value={'10'}>Ten</MenuItem>
+                <MenuItem value={'20'}>Twenty</MenuItem>
+                <MenuItem value={'30'}>Thirty</MenuItem>
                 </Select>
             </FormControl>
             <Button sx={{float: 'right', mr: 3,ml: 3}} variant="contained">Add Employee</Button>
@@ -78,11 +78,11 @@ const UserCardlist = (props) => {
                         return val
                     }
                     return val
-                }).map((emp) => {
+                }).map((emp,i) => {
                             return (
                                 <Grid item xs={12} sm={6} md={4} lg={3}>
-                                    <UserCard employee={emp} key={emp.id} />
-                                </Grid>  
+                                    <UserCard employee={emp} key={i}/>
+                                </Grid> 
                             )
                         }
                         
