@@ -14,8 +14,8 @@ const UserCard = (props) => {
     // console.log('Company ',props.employee.company.catchPhrase);
     // console.log(catchPhrase);
     return (
-        <Box >
-            <Card sx={{ minWidth: 200 }} style={{borderRadius: 25}}>
+        <Box sx={{mb: 3}}>
+            <Card sx={{ minWidth: 120 }} style={{borderRadius: 25}}>
                 
                 <IconButton sx={{float: 'right',mt: 1,mr: 1}} aria-label="settings">
                     <MoreVert />
@@ -23,7 +23,7 @@ const UserCard = (props) => {
                     
                 <CardMedia
                         // component="img"
-                        style={{height: 120, width: 150, marginLeft: 'auto', marginRight: 'auto', marginTop: '1em'}}
+                        style={{height: 100, width: 120, marginLeft: 'auto', marginRight: 'auto', marginTop: '1em'}}
                         image="https://cdn3.vectorstock.com/i/1000x1000/30/97/flat-business-man-user-profile-avatar-icon-vector-4333097.jpg/1000x1080"
                 />
                 <CardContent sx={{textAlign: 'center'}} style={{marginLeft: 'auto',marginRight: 'auto'}}>

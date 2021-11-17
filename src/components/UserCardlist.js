@@ -6,6 +6,8 @@ import UserCard from './UserCard';
 import Divider from '@mui/material/Divider';
 import { useState } from 'react';
 import CloseSharpIcon from '@mui/icons-material/CloseSharp';
+import KeyboardArrowDownSharpIcon from '@mui/icons-material/KeyboardArrowDownSharp';
+import NotificationsOutlinedIcon from '@mui/icons-material/NotificationsOutlined';
 
 const useStyles = makeStyles({
     gridContainer: {
@@ -27,26 +29,37 @@ const UserCardlist = (props) => {
 
     const [searchTerm,setSearchTerm] = useState("");
     return (
-        <Box style={{backgroundColor: '#fff', marginRight: '2em', marginBottom: '2em' }} sx={{borderRadius: 15}}>
-            <IconButton onClick={handleNotHovering} sx={{fontSize: 'small' ,float: 'right', mr: 4, mt: 2}}>
-                <CloseSharpIcon />
-            </IconButton>
-            <Typography variant="h4" sx={{m: 3,pt: 2}}>
+        <Box style={{backgroundColor: '#fff', marginRight: '1em', marginBottom: '1em' }} sx={{borderRadius: 15}}>
+            <Box sx={{float: 'right',mr: 4, mt: 1, pt: 2}}>
+                <IconButton sx={{fontSize: 'large', pr: 1}}>
+                    <NotificationsOutlinedIcon/>
+                </IconButton>
+                <IconButton sx={{fontSize: 'large',pr: 2}} style={{backgroundColor: 'transparent'}}>
+                    Nirav Kumar<KeyboardArrowDownSharpIcon />
+                </IconButton>
+                
+                <IconButton onClick={handleNotHovering} sx={{fontSize: 'small'}}>
+                    
+                    <CloseSharpIcon />
+                </IconButton>
+            </Box>
+            
+            <Typography variant="h4" sx={{mt: 2,ml: 3,pt: 2}}>
                 HR Management List
             </Typography>
-            <Divider sx={{m: 2}}/>
+            <Divider sx={{m: 1}}/>
 
             <TextField
                 id="search"
                 label="Name"
                 size="small"
-                sx={{mb:2,ml:3,mr: 4}}
+                sx={{ml:3,mr: 4}}
                 onChange={(event)=>{
                     setSearchTerm(event.target.value)
                 }}
             />
             <Box sx={{float: 'right'}}>
-            <FormControl sx={{ mb: 2, minWidth: 120 }}>
+            <FormControl sx={{  minWidth: 120 }}>
                 <InputLabel id="demo-simple-select-helper-label">All</InputLabel>
                 <Select
                 labelId="demo-simple-select-helper-label"
@@ -62,7 +75,7 @@ const UserCardlist = (props) => {
                 <MenuItem >Thirty</MenuItem>
                 </Select>
             </FormControl>
-            <FormControl sx={{fmb: 2,ml: 4, minWidth: 120 }}>
+            <FormControl sx={{ml: 4, minWidth: 120 }}>
                 <InputLabel id="demo-simple-select-helper-label">Default</InputLabel>
                 <Select
                 labelId="demo-simple-select-helper-label"
@@ -81,7 +94,7 @@ const UserCardlist = (props) => {
             <Button sx={{float: 'right', mr: 3,ml: 3}} variant="contained">Add Employee</Button>
             </Box>
             <Grid container spacing={4} className={classes.gridContainer}>
-                {employee.filter((val)=>{
+                {employee.slice(0,8).filter((val)=>{
                     if(searchTerm === ""){
                         return val
                     }else if(val.name.toLowerCase().includes(searchTerm.toLowerCase())){
@@ -97,7 +110,7 @@ const UserCardlist = (props) => {
                     }
                         
                 )}
-                
+        
             </Grid>
         </Box>
         

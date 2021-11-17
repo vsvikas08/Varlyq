@@ -9,7 +9,8 @@ class App extends React.Component{
 	state = {
 		loading: true,
 		employee: [],
-		isHover: false
+		isHover: false,
+		hoverIndex: -1
 	}
 	async componentDidMount(){
 		const url = "https://jsonplaceholder.typicode.com/users";
@@ -18,7 +19,8 @@ class App extends React.Component{
 		this.setState({
 			loading: false,
 			employee: data,
-			isHover: false
+			isHover: false,
+			hoverIndex: -1
 		})
 		// console.log('STATE',this.state);
 	}
@@ -37,20 +39,29 @@ class App extends React.Component{
 		})
 		// console.log('is hover',this.state.isHover);
 	}
+	handleHoverIndex = (idx) => {
+		this.setState({
+			hoverIndex: idx
+		})
+		console.log('hi ',this.hoverIndex);
+	}
 
 	render(){
+		console.log("Render");
 		return (
 			<Box sx={{flexGrow: 1}} style={{backgroundColor: '#009688'}}>
-				<Grid container spacing={2} sx={{minHeight: 730}}>
+				<Grid container sx={{minHeight: 730}}>
 					<Grid item xs={12} md={2} lg={2}>
 						<Sidebar 
 							hovering={this.hovering}
+							hoverIndex = {this.hoverIndex}
+							handleHoverIndex={this.handleHoverIndex}
 							/>
 					</Grid>
 					{ this.state.isHover && <Grid item md={10} lg={10}>
 						<UserCardlist 
 							state={this.state} 
-							notHovering={this.notHovering}/>
+							notHovering={this.notHovering} />
 					</Grid>}
 				</Grid>
 			</Box>
