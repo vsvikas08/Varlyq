@@ -20,22 +20,22 @@ class App extends React.Component{
 			employee: data,
 			isHover: false
 		})
-		console.log('STATE',this.state);
+		// console.log('STATE',this.state);
 	}
 
 	hovering = () => {
-		console.log("App hovering");
+		// console.log("App hovering");
 		this.setState({
 			isHover: true
 		})
-		console.log('is hover ',this.state.isHover);
+		// console.log('is hover ',this.state.isHover);
 	}
 	notHovering = () => {
-		console.log("App not hovering");
+		// console.log("App not hovering");
 		this.setState({
 			isHover: false
 		})
-		console.log('is hover',this.state.isHover);
+		// console.log('is hover',this.state.isHover);
 	}
 
 	render(){

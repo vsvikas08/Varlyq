@@ -1,21 +1,18 @@
-import { List, ListItem, ListItemButton, ListItemText, Typography } from "@mui/material";
-import { Box, style } from "@mui/system";
+import { List, ListItem, ListItemButton, ListItemText } from "@mui/material";
+import { Box } from "@mui/system";
 import Divider from '@mui/material/Divider';
-import React, {useState} from "react";
+import React from "react";
 
 
 const Sidebar = (props) => {
     const [selectedIndex] = React.useState(5);
-    const [isHover, setIsHovering] = useState(false);
-    const {hovering, notHovering} = props;
+    const {hovering} = props;
 
     const handleMouseOver = () => {
-        setIsHovering(true);
         // console.log("Hovering in...");
         hovering();
     }
     const handleMouseOut = () => {
-        setIsHovering(false);
         // console.log("Hovering out...");
         // notHovering();
     }

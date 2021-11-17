@@ -21,7 +21,7 @@ const UserCardlist = (props) => {
     // console.log('Card STATE',employee);
     
     const handleNotHovering = () => {
-        console.log("Clicked");
+        // console.log("Clicked");
         notHovering();
     }
 
