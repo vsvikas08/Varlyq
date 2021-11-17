@@ -1,10 +1,11 @@
-import { Button, FormControl, Grid, InputLabel, MenuItem, Select, TextField, Typography } from '@mui/material';
+import { Button, FormControl, Grid, IconButton, InputLabel, MenuItem, Select, TextField, Typography } from '@mui/material';
 import { makeStyles } from '@mui/styles';
 import { Box } from '@mui/system';
 import React from 'react';
 import UserCard from './UserCard';
 import Divider from '@mui/material/Divider';
 import { useState } from 'react';
+import CloseSharpIcon from '@mui/icons-material/CloseSharp';
 
 const useStyles = makeStyles({
     gridContainer: {
@@ -16,15 +17,24 @@ const useStyles = makeStyles({
 const UserCardlist = (props) => {
     const classes = useStyles();
     const {employee} = props.state;
+    const {notHovering} = props;
     // console.log('Card STATE',employee);
+    
+    const handleNotHovering = () => {
+        console.log("Clicked");
+        notHovering();
+    }
 
     const [searchTerm,setSearchTerm] = useState("");
     return (
-        <Box>
-            <Typography variant="h2" sx={{m: 3}}>
+        <Box style={{backgroundColor: '#fff', marginRight: '2em', marginBottom: '2em' }} sx={{borderRadius: 15}}>
+            <IconButton onClick={handleNotHovering} sx={{fontSize: 'small' ,float: 'right', mr: 4, mt: 2}}>
+                <CloseSharpIcon />
+            </IconButton>
+            <Typography variant="h4" sx={{m: 3,pt: 2}}>
                 HR Management List
             </Typography>
-            <Divider sx={{m: 3}}/>
+            <Divider sx={{m: 2}}/>
 
             <TextField
                 id="search"
@@ -47,9 +57,9 @@ const UserCardlist = (props) => {
                 <MenuItem value="">
                     <em>None</em>
                 </MenuItem>
-                <MenuItem value={`10`}>Ten</MenuItem>
-                <MenuItem value='20'>Twenty</MenuItem>
-                <MenuItem value='30'>Thirty</MenuItem>
+                <MenuItem >Ten</MenuItem>
+                <MenuItem >Twenty</MenuItem>
+                <MenuItem >Thirty</MenuItem>
                 </Select>
             </FormControl>
             <FormControl sx={{fmb: 2,ml: 4, minWidth: 120 }}>
@@ -63,9 +73,9 @@ const UserCardlist = (props) => {
                 <MenuItem value="">
                     <em>None</em>
                 </MenuItem>
-                <MenuItem value={'10'}>Ten</MenuItem>
-                <MenuItem value={'20'}>Twenty</MenuItem>
-                <MenuItem value={'30'}>Thirty</MenuItem>
+                <MenuItem >Ten</MenuItem>
+                <MenuItem >Twenty</MenuItem>
+                <MenuItem >Thirty</MenuItem>
                 </Select>
             </FormControl>
             <Button sx={{float: 'right', mr: 3,ml: 3}} variant="contained">Add Employee</Button>
@@ -77,16 +87,16 @@ const UserCardlist = (props) => {
                     }else if(val.name.toLowerCase().includes(searchTerm.toLowerCase())){
                         return val
                     }
-                    return val
-                }).map((emp,i) => {
+                     }).map((emp,index) => {
+                            // console.log('index ',emp.id);
                             return (
-                                <Grid item xs={12} sm={6} md={4} lg={3}>
-                                    <UserCard employee={emp} key={i}/>
+                                <Grid key={emp.id} item xs={12} sm={6} md={4} lg={3}>
+                                    <UserCard employee={emp} />
                                 </Grid> 
                             )
-                        }
+                    }
                         
-                    )}
+                )}
                 
             </Grid>
         </Box>

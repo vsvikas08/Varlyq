@@ -2,22 +2,13 @@ import * as React from 'react';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
-import { CardHeader, CardMedia, Chip, IconButton } from '@mui/material';
+import { CardMedia, Chip, IconButton } from '@mui/material';
 import { MoreVert } from '@mui/icons-material';
-import { makeStyles } from '@mui/styles';
 import { Box } from '@mui/system';
 
 
-const useStyles = makeStyles({
-    cardU: {
-        paddingLeft: "20px",
-        paddingRight: "20px"
-    }
-})
 const UserCard = (props) => {
-    console.log(props.employee.id);
-    console.log(props);
-    const { classes } = useStyles();
+    // console.log(props.employee.id);
     const {name,email} = props.employee;
     const {catchPhrase} = props.employee.company;
     // console.log('Company ',props.employee.company.catchPhrase);
