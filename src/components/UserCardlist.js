@@ -93,13 +93,14 @@ const UserCardlist = (props) => {
             </FormControl>
             <Button sx={{float: 'right', mr: 3,ml: 3}} variant="contained">Add Employee</Button>
             </Box>
-            <Grid container spacing={4} className={classes.gridContainer}>
+            <Grid sx={{minHeight: 600}} container spacing={4} className={classes.gridContainer}>
                 {employee.slice(0,8).filter((val)=>{
-                    if(searchTerm === ""){
-                        return val
-                    }else if(val.name.toLowerCase().includes(searchTerm.toLowerCase())){
-                        return val
-                    }
+                    // if(searchTerm === ""){
+                    //     return val
+                    // }else if(val.name.toLowerCase().includes(searchTerm.toLowerCase())){
+                    //     return val
+                    // }
+                    return val.name.toLowerCase().includes(searchTerm.toLowerCase())
                      }).map((emp,index) => {
                             // console.log('index ',emp.id);
                             return (

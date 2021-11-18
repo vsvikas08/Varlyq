@@ -14,14 +14,33 @@ class App extends React.Component{
 	}
 	async componentDidMount(){
 		const url = "https://jsonplaceholder.typicode.com/users";
-		const response = await fetch(url);
-		const data = await response.json();
-		this.setState({
-			loading: false,
-			employee: data,
-			isHover: false,
-			hoverIndex: -1
-		})
+		// const response = await fetch(url);
+		// const data = await response.json();
+		fetch(url).then((response) => {
+			if (response.ok) {
+			  return response.json();
+			} else {
+			  throw new Error('Something went wrong');
+			}
+		  })
+		  .then((responseJson) => {
+			// Do something with the response
+			this.setState({
+				loading: false,
+				employee: responseJson,
+				isHover: false,
+				hoverIndex: -1
+			})
+		  })
+		  .catch((error) => {
+			console.log(error)
+		  });
+		// this.setState({
+		// 	loading: false,
+		// 	employee: data,
+		// 	isHover: false,
+		// 	hoverIndex: -1
+		// })
 		// console.log('STATE',this.state);
 	}
 
@@ -43,11 +62,11 @@ class App extends React.Component{
 		this.setState({
 			hoverIndex: idx
 		})
-		console.log('hi ',this.hoverIndex);
+		// console.log('hi ',this.hoverIndex);
 	}
 
 	render(){
-		console.log("Render");
+		// console.log("Render");
 		return (
 			<Box sx={{flexGrow: 1}} style={{backgroundColor: '#00695c'}}>
 				<Grid container sx={{minHeight: 730}}>

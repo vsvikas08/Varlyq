@@ -27,12 +27,12 @@ const Sidebar = (props) => {
 
     const handleMouseOver = (index) => {
         
-        if(index != 4){
+        if(index !== 4){
             return;
         }
         hoverIndex = index;
         // console.log("Hovering in...");
-        console.log("Hover index .. ",hoverIndex);
+        // console.log("Hover index .. ",hoverIndex);
         hovering();
     }
     const handleMouseOut = () => {
