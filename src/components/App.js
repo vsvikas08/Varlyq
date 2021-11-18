@@ -49,7 +49,7 @@ class App extends React.Component{
 	render(){
 		console.log("Render");
 		return (
-			<Box sx={{flexGrow: 1}} style={{backgroundColor: '#009688'}}>
+			<Box sx={{flexGrow: 1}} style={{backgroundColor: '#00695c'}}>
 				<Grid container sx={{minHeight: 730}}>
 					<Grid item xs={12} md={2} lg={2}>
 						<Sidebar 

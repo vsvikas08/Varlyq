@@ -1,5 +1,5 @@
 import { List, ListItem, ListItemButton, ListItemText } from "@mui/material";
-import { borderRadius, Box } from "@mui/system";
+import { Box } from "@mui/system";
 import Divider from '@mui/material/Divider';
 import React from "react";
 import { makeStyles } from '@mui/styles';

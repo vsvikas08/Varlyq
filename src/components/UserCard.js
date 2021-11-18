@@ -14,7 +14,7 @@ const UserCard = (props) => {
     // console.log('Company ',props.employee.company.catchPhrase);
     // console.log(catchPhrase);
     return (
-        <Box sx={{mb: 3}}>
+        <Box sx={{mb: 3}} >
             <Card sx={{ minWidth: 120 }} style={{borderRadius: 25}}>
                 
                 <IconButton sx={{float: 'right',mt: 1,mr: 1}} aria-label="settings">
